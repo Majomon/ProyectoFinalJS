@@ -1,7 +1,13 @@
 //Cargando productos
 const listaPost = document.querySelector("#post");
 const carrito = []
-const contenedorCarrito = document.querySelector(".carrito-contenedor")
+const post2 = document.querySelector(".post2")
+
+
+function limpiar(){
+    post2.innerHTML=""
+}
+
 
 fetch("./js/stock.json")
     .then((response) => response.json())
@@ -26,29 +32,27 @@ fetch("./js/stock.json")
             })
 
 
-
-
         });
-/*             const actualizarCarrito = () => {
-                carrito.forEach((prod) => {
-                    const div = document.createElement("div");
-                    div.className = "productoEnCarrito"
-                    div.innerHTML = `
-                                    <p>${prod.nombre}</p>
-                                    <p>Precio: ${prod.precio}</p>
-                                    <button onclick= "eliminarDelCarrito(${prod.id})" class="boton-eliminar">X</button>
-                                    `
-                    contenedorCarrito.append(div)
-            })
-            
-        } */
-
-        console.log(carrito);
 
         const agregarCarrito = (prodId) => {
             const item = stock.find((prod) => prod.id === prodId)
             carrito.push(item)
+            limpiar()
+            carrito.forEach((prod)=>{
+                const li2= document.createElement("li");
+                li2.innerHTML=`<div class="container-fluid itemCarritoCompra">
+                                    <div class="row">
+                                        <p class=col>${prod.nombre}</p>
+                                        <p class=col>Precio: $${prod.precio}</p>
+                                        <button id="eliminar${prod.id}" class="boton-eliminar col">X</button>
+                                    </div>
+                               </div>`
+                               
+                post2.appendChild(li2)
+            })
         }
+
+
 
 
     });
