@@ -3,7 +3,6 @@
         "id": 1,
         "nombre": "Chop de ceramica",
         "precio": 600,
-        "stock": 10,
         "img": "./assets/choop.jpg",
         "alt": "chop"
     },
@@ -11,7 +10,6 @@
         "id": 2,
         "nombre": "Taza recta de ceramica",
         "precio": 350,
-        "stock": 10,
         "img": "./assets/taza.jpg",
         "alt": "taza"
     },
@@ -19,7 +17,6 @@
         "id": 3,
         "nombre": "Mate de ceramica",
         "precio": 300,
-        "stock": 10,
         "img": "./assets/mate.jpg",
         "alt": "mate"
     },
@@ -27,7 +24,6 @@
         "id": 4,
         "nombre": "Taza borde",
         "precio": 350,
-        "stock": 10,
         "img": "./assets/taza_borde.webp",
         "alt": "tazaBorde"
     },
@@ -35,7 +31,6 @@
         "id": 5,
         "nombre": "Taza conica corazon",
         "precio": 350,
-        "stock": 10,
         "img": "./assets/taza_conica_corazon.webp",
         "alt": "tazaConicaCorazon"
     },
@@ -43,7 +38,6 @@
         "id": 6,
         "nombre": "Taza corazon",
         "precio": 350,
-        "stock": 10,
         "img": "./assets/taza_corazon.webp",
         "alt": "tazaCorazon"
     },
@@ -51,7 +45,6 @@
         "id": 7,
         "nombre": "Funda lata cerveza",
         "precio": 450,
-        "stock": 10,
         "img": "./assets/funda_lata_cerveza.webp",
         "alt": "fundaLataCerveza"
     },
@@ -59,7 +52,6 @@
         "id": 8,
         "nombre": "Funda lata cerveza chica",
         "precio": 370,
-        "stock": 10,
         "img": "./assets/funda_lata_cerveza_chica.webp",
         "alt": "fundaLataCervezaChica"
     },
@@ -67,7 +59,6 @@
         "id": 9,
         "nombre": "Gorra trucker",
         "precio": 650,
-        "stock": 10,
         "img": "./assets/gorro_trucker.webp",
         "alt": "gorraTrucker"
     },
@@ -75,7 +66,6 @@
         "id": 10,
         "nombre": "Bolso matero",
         "precio": 1200,
-        "stock": 10,
         "img": "./assets/bolso_matero.webp",
         "alt": "bolsoMatero"
     },
@@ -83,7 +73,6 @@
         "id": 11,
         "nombre": "Bolso deportivo grande Negro",
         "precio": 2200,
-        "stock": 10,
         "img": "./assets/bolso_deportivo_grande_negro.webp",
         "alt": "bolsoDeportivoGrandeNegro"
     },
@@ -91,7 +80,6 @@
         "id": 12,
         "nombre": "Bolso deportivo grande Azull",
         "precio": 2200,
-        "stock": 10,
         "img": "./assets/bolso_deportivo_grande_azul.webp",
         "alt": "bolsoDeportivoGrandeAzul"
     }

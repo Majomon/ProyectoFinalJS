@@ -4,7 +4,7 @@ const carritoCerrar = document.getElementById('carritoCerrar');
 
 const contenedorModal = document.getElementsByClassName('modal-contenedor')[0]
 const modalCarrito = document.getElementsByClassName('modal-carrito')[0]
-
+const finalizComprar = document.getElementsByClassName('finalizarCompra')
 
 btnCarrito.addEventListener("click", () => {
     contenedorModal.classList.toggle('modal-active')
@@ -32,9 +32,22 @@ function limpiar() {
 }
 
 
+
+
 fetch("./js/stock.json")
     .then((response) => response.json())
     .then((stock) => {
+
+        /* Local Storage */
+        document.addEventListener(`DOMContentLoaded`, () => {
+            if (localStorage.getItem(`carrito`))
+                carrito = JSON.parse(localStorage.getItem(`carrito`))
+            actualizarCarrito();
+        })
+
+
+
+        /* Creando Cards */
         stock.forEach(stock => {
             const li = document.createElement("li");
             li.innerHTML = `<div class="card" style="width: 18rem;">
@@ -48,6 +61,9 @@ fetch("./js/stock.json")
 
             listaPost.append(li);
 
+            localStorage.setItem(`carrito`, JSON.stringify(carrito))
+
+
             const btnAgregar = document.getElementById(`agregar${stock.id}`)
 
             btnAgregar.addEventListener('click', () => {
@@ -57,6 +73,7 @@ fetch("./js/stock.json")
 
         });
 
+        /* Agregando items al modal-carrito */
         const agregarAlCarrito = (prodId) => {
             let yaExiste = carrito.find((prod) => prod.id === prodId)
             if (yaExiste) {
@@ -90,29 +107,23 @@ fetch("./js/stock.json")
                                <p id="cantidad${prod.id}">Cantidad: ${prod.cantidad}</p>
                                <button id="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
                             `
-
                 carritoContenedor.appendChild(div)
 
+                /* Botones de eliminar en modal */
                 const btnEliminarDeAUnoCarrito = document.getElementById(`eliminarDelCarrito(${prod.id})`)
 
                 btnEliminarDeAUnoCarrito.addEventListener(`click`, () => {
                     eliminarDelCarrito()
-
-                    const btnVaciarCarrito = document.querySelector(".vaciarCarrito")
-
-                    btnVaciarCarrito.addEventListener(`click`, () => {
-                        carrito.length = 0
-                        actualizarCarrito();
-                        actualizarPrecio();
-                    })
                 })
             })
         }
+  
 
         const actualizarPrecio = () => {
             const precioTotal = document.querySelector("#precioTotal")
-            precioTotal.innerText = carrito.reduce((acc, el) => acc + (el.precio*el.cantidad), 0)
+            precioTotal.innerText = carrito.reduce((acc, el) => acc + (el.precio * el.cantidad), 0)
         }
+
     });
 
 
