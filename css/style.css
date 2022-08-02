@@ -20,9 +20,6 @@ h2 {
     font-size: 36px;
 }
 
-p {
-    border-bottom: 1px solid black;
-}
 
 .contenedor{
     display: flex;
@@ -99,85 +96,94 @@ p {
 }
 
 .modal-contenedor {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s;
-    opacity: 0;
-    visibility: hidden;
-  }
-  
-  .modal-active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 5;
-  }
-  
-  .modal-carrito {
-    position: relative;
-    background-color: white;
-    border: 1px solid rgb(225, 76, 65);
-    min-width: 500px;
-    padding: 20px;
-    margin-top: -100%;
-    transition: all 0.5s;
-  }
-  .modal-active .modal-carrito {
-    margin-top: 0;
-  }
-  
-  .modal-carrito h3 {
-    color: rgb(225, 76, 65);
-    padding-bottom: 5px;
-  }
-  .modal-carrito #carritoCerrar {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 20px;
-    color: rgb(225, 76, 65);
-    border: none;
-    background-color: white;
-  }
-  .modal-carrito #carritoCerrar:hover {
-    cursor: pointer;
-  }
-  .modal-carrito #carritoCerrar:focus {
-    outline: none;
-  }
-  .modal-carrito .precioProducto {
-    padding-top: 10px;
-  }
-  .card .card-image .card-title {
-    color: rgb(225, 76, 65);
-    position: unset;
-  }
-  
-  .productoEnCarrito {
-    border-left: 5px solid lightblue;
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
-    margin: 5px 0;
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .productoEnCarrito:hover {
-    border-left: 5px solid rgb(225, 76, 65);
-  }
-/* 
-  .post2{
-    display: flex;
-  } */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
 
-  .itemCarritoCompra{
-    display: flex;
-    font-size: 14px;
-    width: 90%;
-    justify-content: space-between;
-  }
+.modal-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
+}
+
+.modal-carrito {
+  position: relative;
+  background-color: white;
+  border: 1px solid rgb(225, 76, 65);
+  min-width: 500px;
+  padding: 20px;
+  margin-top: -100%;
+  transition: all 0.5s;
+}
+
+.modal-active .modal-carrito {
+  margin-top: 0;
+}
+
+.modal-carrito h3 {
+  color: rgb(225, 76, 65);
+  padding-bottom: 5px;
+}
+.modal-carrito #carritoCerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  color: rgb(225, 76, 65);
+  border: none;
+  background-color: white;
+}
+.modal-carrito #carritoCerrar:hover {
+  cursor: pointer;
+}
+.modal-carrito #carritoCerrar:focus {
+  outline: none;
+}
+.modal-carrito .precioProducto {
+  padding-top: 10px;
+}
+.card .card-image .card-title {
+  color: rgb(225, 76, 65);
+  position: unset;
+}
+
+.productoEnCarrito {
+  border-left: 5px solid lightblue;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.productoEnCarrito:hover {
+  border-left: 5px solid rgb(225, 76, 65);
+}
+
+.boton-eliminar {
+  background-color: white;
+  color: red;
+  border: none;
+  font-size: 20px;
+}
+
+.boton-eliminar:hover {
+  cursor: pointer;
+}
+.boton-eliminar:focus {
+  outline: none;
+}
+
+.loading{
+  margin: auto;
+  width: 43%;
+}

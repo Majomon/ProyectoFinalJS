@@ -123,6 +123,7 @@ function inicioSesion(user) {
             title: ':D',
             text: 'Usuario registrado!'
         })
+        
         : Swal.fire({
             icon: 'error',
             title: 'X_X',
@@ -140,10 +141,9 @@ const usuariosLS = recuperarLS();
 
 btnIniciarSesion.addEventListener("click", (e) => {
     e.preventDefault();
-    inicioSesion(usuariosLS)
-    setTimeout(()=> {
-        window.location.href = "productos.html";
-    }, 3000)
-    
+    if (inicioSesion(usuariosLS)){
+        setTimeout(()=> {
+            window.location.href = "productos.html";
+        }, 3000)
+    }
 });
-

@@ -1,11 +1,12 @@
 //Cargando productos
 const listaPost = document.querySelector("#post");
 const carrito = []
-const post2 = document.querySelector(".post2")
+const carritoContenedor = document.querySelector("#carrito-contenedor")
 
 
-function limpiar(){
-    post2.innerHTML=""
+
+function limpiar() {
+    carritoContenedor.innerHTML = ""
 }
 
 
@@ -28,33 +29,63 @@ fetch("./js/stock.json")
             const btnAgregar = document.getElementById(`agregar${stock.id}`)
 
             btnAgregar.addEventListener('click', () => {
-                agregarCarrito(stock.id);
+                agregarAlCarrito(stock.id);
             })
 
 
         });
 
-        const agregarCarrito = (prodId) => {
+        const agregarAlCarrito = (prodId) => {
             const item = stock.find((prod) => prod.id === prodId)
             carrito.push(item)
+            actualizarCarrito();
+            actualizarPrecio();
+        }
+
+        const eliminarDelCarrito = (prodId) => {
+            const item = carrito.find((prod) => prod.id === prodId)
+            const indice = carrito.indexOf(item)
+            carrito.splice(indice, 1)
+            actualizarCarrito();
+            actualizarPrecio();
+        }
+
+        const actualizarCarrito = () => {
             limpiar()
-            carrito.forEach((prod)=>{
-                const li2= document.createElement("li");
-                li2.innerHTML=`<div class="container-fluid itemCarritoCompra">
-                                    <div class="row">
-                                        <p class=col>${prod.nombre}</p>
-                                        <p class=col>Precio: $${prod.precio}</p>
-                                        <button id="eliminar${prod.id}" class="boton-eliminar col">X</button>
-                                    </div>
-                               </div>`
-                               
-                post2.appendChild(li2)
+            carrito.forEach((prod) => {
+                let div = document.createElement("div");
+                div.classList.add('productoEnCarrito')
+                div.innerHTML = `<p>${prod.nombre}</p>
+                               <p>Precio: $${prod.precio}</p>
+                               <button id="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+                            `
+
+                carritoContenedor.appendChild(div)
+
+                const btnEliminarDeAUnoCarrito = document.getElementById(`eliminarDelCarrito(${prod.id})`)
+
+                btnEliminarDeAUnoCarrito.addEventListener(`click`, () => {
+                    eliminarDelCarrito()
+
+                    const btnVaciarCarrito = document.querySelector(".vaciarCarrito")
+
+                    btnVaciarCarrito.addEventListener(`click`, () => {
+                        carrito.length = 0
+                        actualizarCarrito();
+                        actualizarPrecio();
+                    })
+                })
             })
         }
 
+        const actualizarPrecio=()=>{
+            
+            
+            const precioTotal = document.querySelector("#precioTotal")
 
+            precioTotal.innerText=carrito.reduce((acc,el)=> acc + el.precio, 0)
 
-
+        }
     });
 
 /* Botones del carrito */
