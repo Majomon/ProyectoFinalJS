@@ -1,6 +1,6 @@
 [
     {
-        "id": 0,
+        "id": 1,
         "nombre": "Chop de ceramica",
         "precio": 600,
         "stock": 10,
@@ -8,7 +8,7 @@
         "alt": "chop"
     },
     {
-        "id": 1,
+        "id": 2,
         "nombre": "Taza recta de ceramica",
         "precio": 350,
         "stock": 10,
@@ -16,7 +16,7 @@
         "alt": "taza"
     },
     {
-        "id": 2,
+        "id": 3,
         "nombre": "Mate de ceramica",
         "precio": 300,
         "stock": 10,
@@ -24,7 +24,7 @@
         "alt": "mate"
     },
     {
-        "id": 3,
+        "id": 4,
         "nombre": "Taza borde",
         "precio": 350,
         "stock": 10,
@@ -32,7 +32,7 @@
         "alt": "tazaBorde"
     },
     {
-        "id": 4,
+        "id": 5,
         "nombre": "Taza conica corazon",
         "precio": 350,
         "stock": 10,
@@ -40,7 +40,7 @@
         "alt": "tazaConicaCorazon"
     },
     {
-        "id": 5,
+        "id": 6,
         "nombre": "Taza corazon",
         "precio": 350,
         "stock": 10,
@@ -48,7 +48,7 @@
         "alt": "tazaCorazon"
     },
     {
-        "id": 6,
+        "id": 7,
         "nombre": "Funda lata cerveza",
         "precio": 450,
         "stock": 10,
@@ -56,7 +56,7 @@
         "alt": "fundaLataCerveza"
     },
     {
-        "id": 7,
+        "id": 8,
         "nombre": "Funda lata cerveza chica",
         "precio": 370,
         "stock": 10,
@@ -64,7 +64,7 @@
         "alt": "fundaLataCervezaChica"
     },
     {
-        "id": 8,
+        "id": 9,
         "nombre": "Gorra trucker",
         "precio": 650,
         "stock": 10,
@@ -72,7 +72,7 @@
         "alt": "gorraTrucker"
     },
     {
-        "id": 9,
+        "id": 10,
         "nombre": "Bolso matero",
         "precio": 1200,
         "stock": 10,
@@ -80,7 +80,7 @@
         "alt": "bolsoMatero"
     },
     {
-        "id": 10,
+        "id": 11,
         "nombre": "Bolso deportivo grande Negro",
         "precio": 2200,
         "stock": 10,
@@ -88,7 +88,7 @@
         "alt": "bolsoDeportivoGrandeNegro"
     },
     {
-        "id": 11,
+        "id": 12,
         "nombre": "Bolso deportivo grande Azull",
         "precio": 2200,
         "stock": 10,

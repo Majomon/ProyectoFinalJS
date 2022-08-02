@@ -1,3 +1,25 @@
+/* Botones del carrito */
+const btnCarrito = document.querySelector(".btnCarrito")
+const carritoCerrar = document.getElementById('carritoCerrar');
+
+const contenedorModal = document.getElementsByClassName('modal-contenedor')[0]
+const modalCarrito = document.getElementsByClassName('modal-carrito')[0]
+
+
+btnCarrito.addEventListener("click", () => {
+    contenedorModal.classList.toggle('modal-active')
+});
+
+carritoCerrar.addEventListener('click', () => {
+    contenedorModal.classList.toggle('modal-active')
+})
+modalCarrito.addEventListener('click', (e) => {
+    e.stopPropagation()
+})
+contenedorModal.addEventListener('click', () => {
+    carritoCerrar.click()
+})
+
 //Cargando productos
 const listaPost = document.querySelector("#post");
 const carrito = []
@@ -36,10 +58,18 @@ fetch("./js/stock.json")
         });
 
         const agregarAlCarrito = (prodId) => {
-            const item = stock.find((prod) => prod.id === prodId)
-            carrito.push(item)
-            actualizarCarrito();
-            actualizarPrecio();
+            let yaExiste = carrito.find((prod) => prod.id === prodId)
+            if (yaExiste) {
+                yaExiste.cantidad = yaExiste.cantidad + 1
+                document.getElementById(`cantidad${yaExiste.id}`).innerHTML = `<p id="cantidad${yaExiste.id}">Cantidad: ${yaExiste.cantidad}</p>`
+                actualizarPrecio();
+            } else {
+                const item = stock.find((prod) => prod.id === prodId)
+                item.cantidad = 1
+                carrito.push(item)
+                actualizarCarrito();
+                actualizarPrecio();
+            }
         }
 
         const eliminarDelCarrito = (prodId) => {
@@ -57,6 +87,7 @@ fetch("./js/stock.json")
                 div.classList.add('productoEnCarrito')
                 div.innerHTML = `<p>${prod.nombre}</p>
                                <p>Precio: $${prod.precio}</p>
+                               <p id="cantidad${prod.id}">Cantidad: ${prod.cantidad}</p>
                                <button id="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
                             `
 
@@ -78,37 +109,13 @@ fetch("./js/stock.json")
             })
         }
 
-        const actualizarPrecio=()=>{
-            
-            
+        const actualizarPrecio = () => {
             const precioTotal = document.querySelector("#precioTotal")
-
-            precioTotal.innerText=carrito.reduce((acc,el)=> acc + el.precio, 0)
-
+            precioTotal.innerText = carrito.reduce((acc, el) => acc + (el.precio*el.cantidad), 0)
         }
     });
 
-/* Botones del carrito */
-const btnCarrito = document.querySelector(".btnCarrito")
-const carritoCerrar = document.getElementById('carritoCerrar');
 
-const contenedorModal = document.getElementsByClassName('modal-contenedor')[0]
-const modalCarrito = document.getElementsByClassName('modal-carrito')[0]
-
-
-btnCarrito.addEventListener("click", () => {
-    contenedorModal.classList.toggle('modal-active')
-});
-
-carritoCerrar.addEventListener('click', () => {
-    contenedorModal.classList.toggle('modal-active')
-})
-modalCarrito.addEventListener('click', (e) => {
-    e.stopPropagation()
-})
-contenedorModal.addEventListener('click', () => {
-    carritoCerrar.click()
-})
 
 
 
